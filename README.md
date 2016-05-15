@@ -1,0 +1,1 @@
+# SCSSLint-LineLength
