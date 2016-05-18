@@ -3,7 +3,7 @@ module SCSSLint
   class Linter::LineLength < Linter
     include LinterRegistry
 
-    MSG = 'Line is too long. [%d/%d]'.freeze
+    MESSAGE = 'Line is too long. [%d/%d]'.freeze
 
     def visit_root(_node)
       max_length = config['max'] || 80
@@ -14,7 +14,7 @@ module SCSSLint
 
         add_lint(
           dummy_node.new(index + 1),
-          format(MSG, line.length, max_length)
+          format(MESSAGE, line.length, max_length)
         )
       end
     end
