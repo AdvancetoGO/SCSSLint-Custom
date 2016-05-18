@@ -6,7 +6,7 @@ module SCSSLint
     MSG = 'Line is too long. [%d/%d]'.freeze
 
     def visit_root(_node)
-      max_length = config['max']
+      max_length = config['max'] || 80
       dummy_node = Struct.new(:line)
 
       engine.lines.each_with_index do |line, index|
