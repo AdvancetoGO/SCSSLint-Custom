@@ -30,31 +30,34 @@ $ bin/console
 
 
 ## Installation
-You can install the gem manually by running
-```
-$ gem install rubocop-eql
-```
-Or add it to your Gemfile
+Add it to your Gemfile
 ```ruby
-gem 'rubocop-eql', github: 'AdvancetoGO/Rubocop-Eql'
+gem 'scss_lint', require: false
+gem 'scss_lint_custom', github: 'AdvancetoGO/SCSSLint-Custom'
 ```
 
 
 ## Usage
-To use the cops along with the default cops, add the following to `.rubocop.yml`
+Add the following to your `.scss-lint.yml`:
 
+```yaml
+plugin_gems: ['scss_lint_custom']
+
+linters:
+  LineLength:
+    enabled: true
+  RedundantNewline:
+    enabled: true
 ```
-require: rubocop-eql
-```
+
+Then run `scss-lint` to see if there are offenses.
 
 
 ## Project Structure
 
-* `config/default.yml` - Default parameters for the cops.
-* `lib/rubocop-eql.rb` - Entry point for the extension, with all requires.
-* `lib/rubocop/eql/inject.rb` - Monkeypatch for RuboCop to accept a plugin
-structure.
-* `lib/rubocop/cop/*` - Cops definitions.
+* `.scss-lint.yml` - Default parameters for the linters.
+* `lib/scss_lint_custom.rb` - Entry point for the extension, with all requires.
+* `lib/scss_lint_custom/scss_lint/linter/*` - Custom linters definitions.
 
 ## Contributing
 We use Github Flow, you can read more about it on these pages
