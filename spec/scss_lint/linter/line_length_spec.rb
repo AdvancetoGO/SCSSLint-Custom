@@ -38,7 +38,7 @@ describe SCSSLint::Linter::LineLength do
     end
 
     it 'reports the line which is too long' do
-      expect(subject).to(report_lint(line: 2))
+      expect(subject).to report_lint(line: 2)
     end
   end
 end
