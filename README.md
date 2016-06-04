@@ -51,7 +51,7 @@ linters:
     enabled: true
 ```
 
-Then run `scss-lint \`find . -type scss\`` to see if there are offenses.
+Then run `scss-lint` to see if there are offenses.
 
 
 ## Project Structure
