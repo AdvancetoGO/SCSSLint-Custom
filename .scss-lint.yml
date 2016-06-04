@@ -2,3 +2,5 @@ linters:
   LineLength:
     enabled: true
     max: 80
+  RedundantNewline:
+    enabled: true
