@@ -13,7 +13,7 @@ RSpec::Matchers.define :report_lint do |options|
     expected_count =
       if count.nil?
         'a lint'
-      elsif count == 1
+      elsif count.eql? 1
         'exactly 1 lint'
       else
         "exactly #{count} lints"
@@ -44,12 +44,12 @@ RSpec::Matchers.define :report_lint do |options|
 
   def lints?(linter, expected_line, count)
     if expected_line && count
-      linter.lints.count == count &&
-        lint_lines(linter).all? { |line| line == expected_line }
+      linter.lints.count.eql?(count) &&
+        lint_lines(linter).all? { |line| line.eql? expected_line }
     elsif expected_line
       lint_lines(linter).include?(expected_line)
     elsif count
-      linter.lints.count == count
+      linter.lints.count.eql? count
     else
       linter.lints.count > 0
     end
